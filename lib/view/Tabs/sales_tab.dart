@@ -81,7 +81,7 @@ class SalesTab extends StatelessWidget {
                     height: 50.h,
                     title: "From",
                     isShowIcon: true,
-                    text: "",
+                    text: "ttt",
                   ),
                 ),
               ),
