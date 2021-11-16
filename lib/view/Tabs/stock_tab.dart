@@ -8,56 +8,58 @@ import 'package:stock_inquiry/widgets/custom_text.dart';
 class StockTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomContainer(
-          width: Get.width,
-          height: 50.h,
-          title: "Description",
-          text: "SAMSUNG GALAXY NOTE 3",
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomText(
-              "- - - - - - - - - - Stock Balance Details - - - - - - - - - -",
-              color: AppColors.blue,
-              fontSize: 14.sp,
-            )
-          ],
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        StockItem(
-          title: "HQ",
-          Ctitle1: "Batch No.",
-          text1: "--",
-          Ctitle2: "Balance Quantity",
-          text2: "576.00000 UNIT",
-        ),
-        StockItem(
-          title: "JB",
-          Ctitle1: "Batch No.",
-          text1: "--",
-          Ctitle2: "Balance Quantity",
-          text2: "59.00000 UNIT",
-        ),
-        StockItem(
-          title: "KL",
-          Ctitle1: "Batch No.",
-          text1: "--",
-          Ctitle2: "Balance Quantity",
-          text2: "297.00000 UNIT",
-        ),
-        StockItem(
-          title: "TRANSIT",
-          Ctitle1: "Batch No.",
-          text1: "--",
-          Ctitle2: "Balance Quantity",
-          text2: "0.00000 UNIT",
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          CustomContainer(
+            width: Get.width,
+            height: 50.h,
+            title: "Description",
+            text: "SAMSUNG GALAXY NOTE 3",
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomText(
+                "- - - - - - - - - - Stock Balance Details - - - - - - - - - -",
+                color: AppColors.blue,
+                fontSize: 14.sp,
+              )
+            ],
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          StockItem(
+            title: "HQ",
+            Ctitle1: "Batch No.",
+            text1: "--",
+            Ctitle2: "Balance Quantity",
+            text2: "576.00000 UNIT",
+          ),
+          StockItem(
+            title: "JB",
+            Ctitle1: "Batch No.",
+            text1: "--",
+            Ctitle2: "Balance Quantity",
+            text2: "59.00000 UNIT",
+          ),
+          StockItem(
+            title: "KL",
+            Ctitle1: "Batch No.",
+            text1: "--",
+            Ctitle2: "Balance Quantity",
+            text2: "297.00000 UNIT",
+          ),
+          StockItem(
+            title: "TRANSIT",
+            Ctitle1: "Batch No.",
+            text1: "--",
+            Ctitle2: "Balance Quantity",
+            text2: "0.00000 UNIT",
+          ),
+        ],
+      ),
     );
   }
 }

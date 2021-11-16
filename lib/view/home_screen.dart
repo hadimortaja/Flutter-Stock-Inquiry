@@ -6,12 +6,20 @@ import 'package:stock_inquiry/view/Tabs/details_tab.dart';
 import 'package:stock_inquiry/view/Tabs/image_tab.dart';
 import 'package:stock_inquiry/view/Tabs/more_tab.dart';
 import 'package:stock_inquiry/view/Tabs/price_tab.dart';
+import 'package:stock_inquiry/view/Tabs/promotions_tab.dart';
+import 'package:stock_inquiry/view/Tabs/sales_tab.dart';
 import 'package:stock_inquiry/view/Tabs/stock_tab.dart';
 import 'package:stock_inquiry/widgets/custom_button.dart';
 import 'package:stock_inquiry/widgets/custom_text.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   bool isShowDialog = false;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -31,58 +39,64 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomText(
-                  "Enter KeyWord Here:",
-                  color: AppColors.primaryColor,
-                  fontSize: 14.sp,
-                ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomText(
+                "Enter KeyWord Here:",
+                color: AppColors.primaryColor,
+                fontSize: 14.sp,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: Container(
-                      width: Get.width,
-                      height: 30.h,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.primaryColor),
-                          borderRadius: BorderRadius.circular(10.r)),
-                      child: TextFormField(
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(border: InputBorder.none),
-                      ),
-                    )),
-                    SizedBox(
-                      width: 10.w,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: Container(
+                    width: Get.width,
+                    height: 30.h,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: AppColors.primaryColor),
+                        borderRadius: BorderRadius.circular(10.r)),
+                    child: TextFormField(
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(border: InputBorder.none),
                     ),
-                    CustomButton(
-                      onTap: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                title: CustomText(
-                                  'Choose Item',
-                                ),
-                                content: setupAlertDialoadContainer(),
-                              );
-                            });
-                      },
-                      cWidth: 100.w,
-                      cHeight: 30.h,
-                      title: "SCAN",
-                    ),
-                  ],
-                ),
+                  )),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  CustomButton(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: CustomText(
+                                'Choose Item',
+                              ),
+                              content: setupAlertDialoadContainer(() {
+                                Get.back();
+                                setState(() {
+                                  isShowDialog = true;
+                                });
+                              }),
+                            );
+                          });
+                    },
+                    cWidth: 100.w,
+                    cHeight: 30.h,
+                    title: "SCAN",
+                  ),
+                ],
               ),
-              Material(
+            ),
+            Visibility(
+              visible: isShowDialog,
+              child: Material(
                 color: AppColors.primaryColor,
                 child: TabBar(
                   isScrollable: true,
@@ -112,37 +126,39 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                children: [
-                  Padding(
+            ),
+            Visibility(
+              visible: isShowDialog,
+              child: Expanded(
+                child: Container(
+                  // width: Get.width,
+                  // height: 500.h,
+                  child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: Get.width,
-                      height: 600.h,
-                      child: TabBarView(
-                        children: [
-                          DetailsTab(),
-                          PriceTab(),
-                          MoreTab(),
-                          ImageTab(),
-                          StockTab(),
-                          Icon(Icons.directions_bike),
-                          Icon(Icons.directions_bike),
-                        ],
-                      ),
+                    child: TabBarView(
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        DetailsTab(),
+                        PriceTab(),
+                        MoreTab(),
+                        ImageTab(),
+                        StockTab(),
+                        PromotionsTab(),
+                        SalesTab(),
+                      ],
                     ),
                   ),
-                ],
-              )
-            ],
-          ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
   }
 }
 
-Widget setupAlertDialoadContainer() {
+Widget setupAlertDialoadContainer(Function() onTap) {
   return Container(
     // height: 300.0, // Change as per your requirement
     width: 300.0.w, // Change as per your requirement
@@ -151,7 +167,7 @@ Widget setupAlertDialoadContainer() {
       itemCount: 2,
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
-          onTap: () {},
+          onTap: onTap,
           child: Column(
             children: [
               Row(

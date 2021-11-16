@@ -7,167 +7,169 @@ import 'package:stock_inquiry/widgets/custom_container.dart';
 class MoreTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        CustomContainer(
-          width: Get.width,
-          height: 55.h,
-          title: "Status",
-          text: "Active",
-          textColor: AppColors.green,
-        ),
-        CustomContainer(
-          width: Get.width,
-          height: 55.h,
-          title: "BarCode",
-          text: "8001",
-        ),
-        CustomContainer(
-          width: Get.width,
-          height: 55.h,
-          title: "Desc2",
-          text: "--",
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Item Group",
-                text: "SAMSUNG",
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CustomContainer(
+            width: Get.width,
+            height: 55.h,
+            title: "Status",
+            text: "Active",
+            textColor: AppColors.green,
+          ),
+          CustomContainer(
+            width: Get.width,
+            height: 55.h,
+            title: "BarCode",
+            text: "8001",
+          ),
+          CustomContainer(
+            width: Get.width,
+            height: 55.h,
+            title: "Desc2",
+            text: "--",
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Item Group",
+                  text: "SAMSUNG",
+                ),
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Item Type",
-                text: "HANDPHONE",
+              SizedBox(
+                width: 5.w,
               ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Supply Tax Code",
-                text: "--",
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Item Type",
+                  text: "HANDPHONE",
+                ),
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Purchase Tax Code",
-                text: "-1.00",
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Supply Tax Code",
+                  text: "--",
+                ),
               ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Weight",
-                text: "--",
+              SizedBox(
+                width: 5.w,
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "WeightUOM",
-                text: "--",
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Purchase Tax Code",
+                  text: "-1.00",
+                ),
               ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Volume",
-                text: "--",
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Weight",
+                  text: "--",
+                ),
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "VolumeUOM",
-                text: "--",
+              SizedBox(
+                width: 5.w,
               ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Shelf",
-                text: "--",
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "WeightUOM",
+                  text: "--",
+                ),
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "Normal Level",
-                text: "--",
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Volume",
+                  text: "--",
+                ),
               ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "ReOrder Level",
-                text: "20.000000",
+              SizedBox(
+                width: 5.w,
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Expanded(
-              child: CustomContainer(
-                width: Get.width,
-                height: 55.h,
-                title: "ReOrder Quantity",
-                text: "10.00000",
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "VolumeUOM",
+                  text: "--",
+                ),
               ),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Shelf",
+                  text: "--",
+                ),
+              ),
+              SizedBox(
+                width: 5.w,
+              ),
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "Normal Level",
+                  text: "--",
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "ReOrder Level",
+                  text: "20.000000",
+                ),
+              ),
+              SizedBox(
+                width: 5.w,
+              ),
+              Expanded(
+                child: CustomContainer(
+                  width: Get.width,
+                  height: 55.h,
+                  title: "ReOrder Quantity",
+                  text: "10.00000",
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
